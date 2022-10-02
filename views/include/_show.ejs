@@ -1,7 +1,8 @@
+<% for(var i=0;i<users.length;i++){%>
 <tr>
-    <td>1</td>
-    <td>Fahim Imam</td>
-    <td>+88001256</td>
+    <td><%=i+1%></td>
+    <td><%=users[i].firstName +' '+ users[i].lastName%></td>
+    <td><%=users[i].phone%></td>
     <td><a href="/update-user" class="btn border-shadow update">
         <span class="text-gradient"><i class="fa-solid fa-user-pen"></i></span>
     </a>
@@ -11,3 +12,4 @@
         </a>
     </td>
 </tr>
+<%}%>
