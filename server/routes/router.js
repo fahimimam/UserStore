@@ -17,6 +17,6 @@ route.get('/', services.homeRoutes);
  route.get('/api/users/:id', controller.update);
  route.delete('/api/users/:id', controller.delete);
 // Extended Tasks
-// route.post('/api/users/:id/:tags', controller.createTags);
+route.put('/api/users/:id/:tags', controller.createTags);
 
   module.exports = route

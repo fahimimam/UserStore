@@ -12,7 +12,7 @@ exports.create = (req, res) => {
         lastName: req.body.lastName,
         password: req.body.password,
         phone: req.body.phone,
-        tags:req.body.tags
+        tags: req.body.tags
     })
 
     // send user to the db
@@ -28,6 +28,32 @@ exports.create = (req, res) => {
             });
         })
 }
+// Create Tags
+exports.createTags = (req, res) => {
+    let id = req.params.id;
+    // let tags = req.params.tags;
+    Userdb.findOneAndUpdate({ id }, {
+        $set: {
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            password: req.body.password,
+            phone: req.body.phone,
+            tags: req.body.tags
+        }
+    })
+    .then(result =>{
+        res.status(200).send({
+            updated_user:result
+        })
+    })
+    .catch(err=>{
+        console.log(err);
+        res.status(500).send({
+            message: err
+        })
+    })
+}
+
 
 // retrieve user/s
 exports.find = (req, res) => {

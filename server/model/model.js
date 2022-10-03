@@ -15,7 +15,7 @@ var schema = new mongoose.Schema({
         required: true
     },
     phone:String,
-    tags:[]
+    tags:[String]
 })
 
 const Userdb = mongoose.model('userdb', schema);
