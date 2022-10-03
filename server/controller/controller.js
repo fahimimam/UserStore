@@ -41,17 +41,17 @@ exports.createTags = (req, res) => {
             tags: req.body.tags
         }
     })
-    .then(result =>{
-        res.status(200).send({
-            updated_user:result
+        .then(result => {
+            res.status(200).send({
+                updated_user: result
+            })
         })
-    })
-    .catch(err=>{
-        console.log(err);
-        res.status(500).send({
-            message: err
+        .catch(err => {
+            console.log(err);
+            res.status(500).send({
+                message: err
+            })
         })
-    })
 }
 
 
@@ -155,19 +155,37 @@ exports.view = (req, res) => {
         });
 }
 
-exports.try = (req,res) =>{
+exports.try = (req, res) => {
     // console.log(req.params.id + " " + req.params.tags)
     let id = req.params.id;
     let tags = req.params.tags;
 
-    Userdb.findByIdAndUpdate({_id:id}, {$addToSet: {tags: tags}}, (err,data)=>{
-        if(err){
+    Userdb.findByIdAndUpdate({ _id: id }, { $addToSet: { tags: tags } }, (err, data) => {
+        if (err) {
             console.log(err);
         }
-        else
-        {
+        else {
             res.send(data);
         }
     })
-    
+
+}
+
+exports.tryGet = (req, res) => {
+    const tags = req.params.tags;
+    Userdb.find({tags: tags})
+        .then(data => {
+            if (!data) {
+                res.status(400).send({
+                    message: "No User found with id" + id
+                })
+            } else {
+                res.send(data);
+            }
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: "Error retrieving user with id: " + id
+            })
+        })
 }
