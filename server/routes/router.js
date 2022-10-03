@@ -20,7 +20,7 @@ route.get('/', services.homeRoutes);
 route.put('/api/users/:id', controller.createTags);
 route.put('/api/users/:id/:tags', controller.try);
 // Getting the intended search
-route.get('/api/users/find/:tags',controller.tryGet);
+route.get('/api/users/:tags[]',controller.tryGet);
 
 
 

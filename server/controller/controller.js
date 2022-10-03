@@ -170,10 +170,15 @@ exports.try = (req, res) => {
     })
 
 }
-
+// The extention tasks......
 exports.tryGet = (req, res) => {
     const tags = req.params.tags;
-    Userdb.find({tags: tags})
+    console.log(tags);
+    res.send(tags);
+}
+
+/*
+Userdb.find({tags: tags})
         .then(data => {
             if (!data) {
                 res.status(400).send({
@@ -188,4 +193,6 @@ exports.tryGet = (req, res) => {
                 message: "Error retrieving user with id: " + id
             })
         })
-}
+
+
+*/
