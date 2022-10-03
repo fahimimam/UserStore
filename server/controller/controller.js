@@ -154,3 +154,20 @@ exports.view = (req, res) => {
             });
         });
 }
+
+exports.try = (req,res) =>{
+    // console.log(req.params.id + " " + req.params.tags)
+    let id = req.params.id;
+    let tags = req.params.tags;
+
+    Userdb.findByIdAndUpdate({_id:id}, {$addToSet: {tags: tags}}, (err,data)=>{
+        if(err){
+            console.log(err);
+        }
+        else
+        {
+            res.send(data);
+        }
+    })
+    
+}
