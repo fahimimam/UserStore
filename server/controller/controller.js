@@ -11,7 +11,8 @@ exports.create = (req, res) => {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         password: req.body.password,
-        phone: req.body.phone
+        phone: req.body.phone,
+        tags:req.body.tags
     })
 
     // send user to the db
@@ -113,7 +114,7 @@ exports.view = (req, res) => {
             }
             else {
                 // const status = res.status;
-                res.send({
+                res.status(200).send({
                     id: data._id,
                     name: data.firstName + " " + data.lastName,
                     phone: data.phone,
@@ -123,7 +124,7 @@ exports.view = (req, res) => {
         })
         .catch(err => {
             res.status(500).send({
-                message: `Couldnt Delete User with id: ${id}!`
+                message: `Couldnt View User with id: ${id}!`
             });
         });
 }
