@@ -19,8 +19,8 @@ route.get('/', services.homeRoutes);
 // Extended Tasks
 route.put('/api/users/:id', controller.createTags);
 route.put('/api/users/:id/:tags', controller.try);
-// Getting
-route.get('/api/users/:id/:tags',controller.tryGet);
+// Getting the intended search
+route.get('/api/users/find/:tags',controller.tryGet);
 
 
 
