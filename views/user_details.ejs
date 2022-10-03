@@ -1,0 +1,34 @@
+<!-- Include header -->
+<%- include('include/_header') %>
+<!-- Include header -->
+
+    <!-- Main Site -->
+    <main id="site-main">
+        <div class="container">
+            <div class="box-nav d-flex justify-between">
+                <a href="/" class="border-shadow">
+                    <span class="text-gradient">All User <i class="fa-solid fa-user"></i></span>
+                </a>
+            </div>
+            <form action="/" method="post">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Full Name</th>
+                            <!-- <th>Password</th> -->
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%- include('include/_view') %>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </main>
+    <!-- Main site -->
+
+<!-- Include Footer -->
+<%- include('include/_footer') %>
+<!-- Include Footer -->

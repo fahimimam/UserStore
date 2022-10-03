@@ -102,3 +102,28 @@ exports.delete = (req, res) => {
             });
         });
 }
+
+// get a single User
+exports.view = (req, res) => {
+    const id = req.params.id;
+    Userdb.findById(id)
+        .then(data => {
+            if (!data) {
+                res.status(404).send({ message: `Cannot Find with id: ${id}. Id invalid` });
+            }
+            else {
+                // const status = res.status;
+                res.send({
+                    id: data._id,
+                    name: data.firstName + " " + data.lastName,
+                    phone: data.phone,
+                    // status: status
+                });
+            }
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: `Couldnt Delete User with id: ${id}!`
+            });
+        });
+}

@@ -29,6 +29,10 @@ app.use('/js', express.static(path.resolve(__dirname,"assets/js")))
 app.use('/', require('./server/routes/router.js'))
 
 
+// Get single user details
+app.get('/view-user', (req,res) =>{
+    res.render('user_details');
+})
 
 
  

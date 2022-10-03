@@ -3,11 +3,11 @@
     <td><%=i+1%></td>
     <td><%=users[i].firstName +' '+ users[i].lastName%></td>
     <td><%=users[i].phone%></td>
-    <td><a href="/update-user" class="btn border-shadow update">
-        <span class="text-gradient"><i class="fa-solid fa-user-pen"></i></span>
+    <td><a href="/view-user?id=<%=users[i]._id%>" class="btn border-shadow update">
+        <span class="text-gradient"><i class="fa-solid fa-circle-info"></i></span>
     </a>
 </td>
-    <td><a href="/delete-user" class="btn border-shadow delete">
+    <td><a href="/delete-user" data-id="users[i]._id" class="btn border-shadow delete">
             <span class="text-gradient"><i class="fas fa-times"></i></span>
         </a>
     </td>
